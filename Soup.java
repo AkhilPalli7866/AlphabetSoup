@@ -1,3 +1,5 @@
+// Akhil Palli 10074609@mcpsmd.net
+// This Program does: 
 public class Soup {
     //these are instance variables 
     private String letters;
@@ -29,13 +31,19 @@ public class Soup {
 
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
-
+        letters = letters + word ;
     }
 
 
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        return 'a';
+
+     int xyz = length(word);
+     string sad = (int) ((Math.random()*xyz)+1);
+    String sus = substring( sad-1 , sad + 1)
+        return 'sus';
+       //to find the length of the letter word thingy 
+       //math.random(); using the length to set the range. 
     }
 
 
