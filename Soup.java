@@ -36,36 +36,77 @@ public class Soup {
 
 
     //Use Math.random() to get a random character from the letters string and return it.
-    public char randomLetter(){
+    public String randomLetter(){
 
-     int xyz = length(word);
-     string sad = (int) ((Math.random()*xyz)+1);
-    String sus = substring( sad-1 , sad + 1)
-        return 'sus';
-       //to find the length of the letter word thingy 
-       //math.random(); using the length to set the range. 
+     int xyz = letters.length();
+     int sad = (int) (Math.random()*xyz);
+     String sus = letters.substring( sad , sad + 1);
+     return sus;
     }
 
 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        int mid = (letters.length() + 1) / 2;
+        String left = letters.substring(0, mid);
+        String right = letters.substring( mid , letters.length());
+        return left + company + right;
     }
 
 
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
-        
+        String s1 = letters.toString();
+        int pos0 = s1.indexOf("a");
+        int pos1 = s1.indexOf("e");
+        int pos2 = s1.indexOf("i");
+        int pos3 = s1.indexOf("o");
+        int pos4 = s1.indexOf("u");
+        int pos5 = s1.indexOf("A");
+        int pos6 = s1.indexOf("E");
+        int pos7 = s1.indexOf("I");
+        int pos8 = s1.indexOf("O");
+        int pos9 = s1.indexOf("U");
+
+        int min = s1.length();
+        int vowelIndex=  -1 ;  
+
+        if (pos0 != -1 && pos0 < min) { min = pos0; vowelIndex = pos0; }
+        if (pos1 != -1 && pos1 < min) { min = pos1; vowelIndex = pos1; }
+        if (pos2 != -1 && pos2 < min) { min = pos2; vowelIndex = pos2; }
+        if (pos3 != -1 && pos3 < min) { min = pos3; vowelIndex = pos3; }
+        if (pos4 != -1 && pos4 < min) { min = pos4; vowelIndex = pos4; }
+        if (pos5 != -1 && pos5 < min) { min = pos5; vowelIndex = pos5; }
+        if (pos6 != -1 && pos6 < min) { min = pos6; vowelIndex = pos6; }
+        if (pos7 != -1 && pos7 < min) { min = pos7; vowelIndex = pos7; }
+        if (pos8 != -1 && pos8 < min) { min = pos8; vowelIndex = pos8; }
+        if (pos9 != -1 && pos9 < min) { min = pos9; vowelIndex = pos9; }
+
+        if (vowelIndex != -1) {
+        letters = letters.substring(0, vowelIndex) + letters.substring(vowelIndex + 1);
+        }
+
+
     }
+
+    
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
-
+         
+        int totalLength = letters.length();
+        int maxStart = totalLength - num + 1;
+        double rand = Math.random();
+        double scaled = rand * maxStart;
+        int start = (int) scaled;
+        String firstPart = letters.substring(0, start);
+        String secondPart = letters.substring(start + num);
+        letters = firstPart + secondPart;
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
     public void removeWord(String word){
-        
+        letters = letters.replaceFirst(word, "");
     }
 }
