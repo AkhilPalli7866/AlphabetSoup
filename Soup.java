@@ -96,7 +96,7 @@ public class Soup {
     public void removeSome(int num){
          
         int totalLength = letters.length();
-        int maxStart = totalLength - num + 1;
+        int maxStart = totalLength - num;
         double rand = Math.random();
         double scaled = rand * maxStart;
         int start = (int) scaled;
